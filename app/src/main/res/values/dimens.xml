@@ -1,0 +1,41 @@
+<resources>
+    <!--Default padding-->
+    <dimen name="small_padding">5dp</dimen>
+    <dimen name="medium_padding">10dp</dimen>
+    <dimen name="large_padding">16dp</dimen>
+
+    <!--Default card elevation -->
+    <dimen name="small_card_elevation">2dp</dimen>
+
+    <!--Default corner radius-->
+    <dimen name="small_corner_radius">7dp</dimen>
+    <dimen name="large_corner_radius">14dp</dimen>
+
+    <!--Default margin-->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    
+    <!--Image dimens-->
+    <dimen name="horizontal_list_card_image_width">150dp</dimen>
+    <dimen name="horizontal_list_card_image_height">200dp</dimen>
+
+    <dimen name="vertical_list_card_image_width">90dp</dimen>
+    <dimen name="vertical_list_card_image_height">120dp</dimen>
+
+    <dimen name="movie_page_width">120dp</dimen>
+    <dimen name="movie_page_height">170dp</dimen>
+
+
+    <!--Card lists-->
+    <dimen name="vertical_list_card_height"></dimen>
+    <dimen name="horizontal_list_card_width">150dp</dimen>
+    <dimen name="horizontal_list_card_height">300dp</dimen>
+
+    <!--Font sizes-->
+    <dimen name="small_font_size">15sp</dimen>
+    <dimen name="medium_font_size">20sp</dimen>
+    <dimen name="large_font_size">30sp</dimen>
+
+    <!--Text Lines-->
+    <dimen name="card_max_lines_text">2</dimen>
+</resources>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View"/>
+        <import type="android.text.TextUtils"/>
+        <variable
+            name="fullMovie"
+            type="com.example.imdbapplication.pojo.movie.FullMovie" />
+        <variable
+            name="trailerClickListener"
+            type="com.example.imdbapplication.data_binding.TrailerClickListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.activities.MoviePageActivity">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:visibility="@{TextUtils.isEmpty(fullMovie.trailer.videoUrl) ? View.GONE : View.VISIBLE}"
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"
+                    android:onClick="@{() -> trailerClickListener.onClicked(fullMovie.trailer.videoUrl)}">
+
+                    <ImageView
+                        android:id="@+id/activityMoviePage_trailer"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:adjustViewBounds="true"
+                        android:scaleType="centerCrop"
+                        app:profileImage="@{fullMovie.trailer.thumbnailUrl}" />
+
+                    <ImageView
+                        android:src="@drawable/ic_play_circle_outline_white_40"
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </RelativeLayout>
+
+                <TextView
+                    android:text="@{fullMovie.title}"
+                    android:id="@+id/activityMoviePage_txtTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/medium_padding"
+                    android:layout_marginTop="@dimen/medium_padding"
+                    android:textSize="@dimen/large_font_size" />
+
+                <LinearLayout
+                    android:layout_marginHorizontal="@dimen/medium_padding"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="@drawable/empty_width_divider"
+                    android:orientation="horizontal"
+                    android:showDividers="middle">
+
+                    <TextView
+                        android:text="@{fullMovie.year}"
+                        android:visibility='@{TextUtils.isEmpty(fullMovie.year) ? View.GONE : View.VISIBLE}'
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:text="@{fullMovie.contentRating}"
+                        android:visibility='@{TextUtils.isEmpty(fullMovie.contentRating) ? View.GONE : View.VISIBLE}'
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:text="@{fullMovie.runtime}"
+                        android:visibility='@{TextUtils.isEmpty(fullMovie.runtime) ? View.GONE : View.VISIBLE}'
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    app:profileColor="@{fullMovie.imgUrl}"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/medium_padding"
+                    android:layout_marginVertical="@dimen/medium_padding">
+
+                    <ImageView
+                        app:profileImage="@{fullMovie.imgUrl}"
+                        android:layout_width="@dimen/movie_page_width"
+                        android:layout_height="@dimen/movie_page_height"
+                        android:layout_centerVertical="true" />
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/medium_padding">
+
+                        <TextView
+                            android:text="@{fullMovie.plot}"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:lines="9"
+                            android:maxLines="9"
+                            android:textSize="@dimen/small_font_size" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <FrameLayout
+                    android:id="@+id/activityMoviePage_castContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <FrameLayout
+                    android:id="@+id/activityMoviePage_similarMovies"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <FrameLayout
+                    android:id="@+id/activityMoviePage_titleBlock"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <FrameLayout
+                    android:id="@+id/activityMoviePage_posterBlock"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <FrameLayout
+                    android:id="@+id/activityMoviePage_imagesBlock"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

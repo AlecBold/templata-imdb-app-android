@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="grey">#AFAFAF</color>
+
+    <color name="mColorPrimary">#356859</color>
+    <color name="mColorPrimaryVariant">#2b4c3f</color>
+    <color name="mColorSecondary">#fd5623</color>
+    <color name="mColorSecondaryVariant">#bd350e</color>
+    <color name="mColorBackground">#f7d2b5</color>
+    <color name="mColorSurface">#e3f6f9</color>
+
+</resources>

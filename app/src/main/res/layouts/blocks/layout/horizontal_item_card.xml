@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="cardClickListener"
+            type="com.example.imdbapplication.data_binding.CardClickListener" />
+        <variable
+            name="card"
+            type="com.example.imdbapplication.data_binding.HorizontalCardController" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/hrzMovieCard_parent"
+        android:layout_width="@dimen/horizontal_list_card_width"
+        android:layout_height="@dimen/horizontal_list_card_height"
+        android:layout_marginVertical="@dimen/small_padding"
+        app:cardCornerRadius="@dimen/large_corner_radius"
+        android:onClick="@{() -> cardClickListener.cardClicked(card.id)}">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                app:profileImage="@{card.imgUrl}"
+                android:id="@+id/hrzMovieCard_imgPoster"
+                android:layout_width="@dimen/horizontal_list_card_image_width"
+                android:layout_height="@dimen/horizontal_list_card_image_height"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/hrzMovieCard_imgPoster"
+                android:paddingHorizontal="@dimen/medium_padding"
+                android:paddingVertical="@dimen/medium_padding">
+
+                <TextView
+                    android:id="@+id/hrzMovieCard_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:lines="2"
+                    android:maxLines="2"
+                    android:text="@{card.title}"
+                    android:textSize="@dimen/small_font_size" />
+
+
+                <TextView
+                    android:id="@+id/hrzMovieCard_bottomInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:text="@{card.description}"
+                    android:textSize="@dimen/small_font_size" />
+
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>
