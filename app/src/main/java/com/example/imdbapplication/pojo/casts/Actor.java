@@ -8,6 +8,8 @@ public class Actor extends IMDbObject {
     private String name;
     @SerializedName("image")
     private String urlImage;
+    @SerializedName("asCharacter")
+    private String character;
 
     public String getName() {
         return name;
@@ -23,5 +25,13 @@ public class Actor extends IMDbObject {
 
     public void setUrlImage(String urlImage) {
         this.urlImage = urlImage;
+    }
+
+    public String getCharacter() {
+        return character;
+    }
+
+    public void setCharacter(String character) {
+        this.character = character;
     }
 }

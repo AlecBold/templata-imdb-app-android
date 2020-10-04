@@ -7,13 +7,8 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="MainTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
-        <item name="colorPrimary">@color/mColorPrimary</item>
-        <item name="colorPrimaryVariant">@color/mColorPrimaryVariant</item>
-        <item name="colorSecondary">@color/mColorSecondary</item>
-        <item name="colorSecondaryVariant">@color/mColorSecondaryVariant</item>
-        <item name="backgroundColor">@color/mColorBackground</item>
-        <item name="colorSurface">@color/mColorSurface</item>
+
+    <style name="MainTheme" parent="Theme.AppCompat">
     </style>
     
 

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View"/>
+        <import type="android.text.TextUtils"/>
+
+        <variable
+            name="cardClickListener"
+            type="com.example.imdbapplication.listeners.CardClickListener" />
+
+        <variable
+            name="actor"
+            type="com.example.imdbapplication.pojo.casts.Actor" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/listCard_parent"
+        android:layout_width="@dimen/horizontal_list_card_width"
+        android:layout_height="@dimen/horizontal_list_card_height"
+        android:layout_marginVertical="@dimen/small_padding"
+        android:onClick="@{() -> cardClickListener.cardClicked(actor.id)}"
+        app:cardCornerRadius="@dimen/large_corner_radius">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/listCard_imgPoster"
+                android:layout_width="@dimen/horizontal_list_card_image_width"
+                android:layout_height="@dimen/horizontal_list_card_image_height"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                app:profileImage="@{actor.urlImage}" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/listCard_imgPoster"
+                android:paddingHorizontal="@dimen/medium_padding"
+                android:paddingVertical="@dimen/medium_padding">
+
+                <TextView
+                    android:id="@+id/listCard_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:lines="2"
+                    android:maxLines="2"
+                    android:text="@{actor.name}"
+                    android:textSize="@dimen/small_font_size" />
+
+
+                <TextView
+                    android:id="@+id/listCard_bottomInfo"
+                    android:layout_width="match_parent"
+                    android:maxLines="1"
+                    android:lines="1"
+                    android:ellipsize="end"
+                    android:layout_height="wrap_content"
+                    android:text="@{actor.character}"
+                    android:textSize="@dimen/small_font_size"
+                    android:layout_alignParentBottom="true"/>
+
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

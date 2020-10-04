@@ -7,6 +7,8 @@ import java.util.List;
 public class ItemsList<T> {
     @SerializedName("items")
     private List<T> items;
+    @SerializedName("errorMessage")
+    private String errorMessage;
 
     public List<T> getItems() {
         return items;
@@ -14,5 +16,13 @@ public class ItemsList<T> {
 
     public void setItems(List<T> items) {
         this.items = items;
+    }
+
+    public String getErrorMessage() {
+        return errorMessage;
+    }
+
+    public void setErrorMessage(String errorMessage) {
+        this.errorMessage = errorMessage;
     }
 }

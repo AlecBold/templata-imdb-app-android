@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="android.text.TextUtils" />
+
+        <variable
+            name="cardClickListener"
+            type="com.example.imdbapplication.listeners.CardClickListener" />
+
+        <variable
+            name="movie"
+            type="com.example.imdbapplication.pojo.movie.Movie" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/listCard_parent"
+        android:layout_width="@dimen/horizontal_list_card_width"
+        android:layout_height="@dimen/horizontal_list_card_height"
+        android:layout_marginVertical="@dimen/small_padding"
+        android:onClick="@{() -> cardClickListener.cardClicked(movie.id)}"
+        app:cardCornerRadius="@dimen/large_corner_radius">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/listCard_imgPoster"
+                android:layout_width="@dimen/horizontal_list_card_image_width"
+                android:layout_height="@dimen/horizontal_list_card_image_height"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                app:profileImage="@{movie.imgUrl}" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/listCard_imgPoster"
+                android:paddingHorizontal="@dimen/medium_padding"
+                android:paddingVertical="@dimen/medium_padding">
+
+                <TextView
+                    android:id="@+id/listCard_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:lines="2"
+                    android:maxLines="2"
+                    android:text="@{movie.title}"
+                    android:textSize="@dimen/small_font_size" />
+
+                <TextView
+                    android:layout_below="@id/listCard_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:lines="1"
+                    android:ellipsize="end"
+                    android:text="@{movie.year}"
+                    android:textSize="@dimen/small_font_size"
+                    app:profileViewVisibility="@{!TextUtils.isEmpty(movie.year)}" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:showDividers="middle"
+                    android:divider="@drawable/horizontal_divider">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{movie.imDbRating}"
+                        android:textSize="@dimen/small_font_size"
+                        android:drawableLeft="@drawable/ic_star_yellow_14"
+                        app:profileViewVisibility="@{!TextUtils.isEmpty(movie.imDbRating)}" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:ellipsize="middle"
+                        android:text="@{movie.release}"
+                        android:textSize="@dimen/small_font_size"
+                        app:profileViewVisibility="@{!TextUtils.isEmpty(movie.release)}" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:lines="1"
+                        android:ellipsize="end"
+                        android:text="@{movie.role}"
+                        android:textSize="@dimen/small_font_size"
+                        app:profileViewVisibility="@{!TextUtils.isEmpty(movie.role)}" />
+
+
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

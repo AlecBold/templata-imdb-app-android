@@ -33,7 +33,7 @@ android {
     sourceSets {
         main {
             res.srcDirs = [
-                    'src/main/res/layouts/blocks',
+                    'src/main/res/layouts/cards',
                     'src/main/res/layouts/activity',
                     'src/main/res/layouts/fragmet',
                     'src/main/res/layouts',
@@ -51,6 +51,9 @@ def navigationVersion = '2.3.0'
 def lifecycleVersion = '2.2.0'
 def materialComponentsVersion = '1.2.1'
 def glideVersion = '4.11.0'
+def paletteVersion = '30.0.0'
+def preferenceVersion = '1.1.1'
+def roomVersion = '2.2.5'
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
@@ -67,6 +70,10 @@ dependencies {
     //Retrofit
     implementation "com.squareup.retrofit2:retrofit:${retrofitVersion}"
     implementation "com.squareup.retrofit2:converter-gson:${retrofitVersion}"
+
+    //Room
+    implementation "androidx.room:room-runtime:${roomVersion}"
+    annotationProcessor "androidx.room:room-compiler:${roomVersion}"
 
     //RecyclerView
     implementation "androidx.recyclerview:recyclerview:${recyclerViewVersion}"
@@ -87,6 +94,12 @@ dependencies {
     //Glide
     implementation "com.github.bumptech.glide:glide:${glideVersion}"
     annotationProcessor "com.github.bumptech.glide:compiler:${glideVersion}"
+
+    //Palette
+    implementation "com.android.support:palette-v7:${paletteVersion}"
+
+    //Preference
+    implementation "androidx.preference:preference:${preferenceVersion}"
 
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.1'

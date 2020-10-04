@@ -1,22 +1,47 @@
 <resources>
-    <string name="app_name">IMDB Application</string>
-    <string name="title_favorites">Favorites</string>
-    <string name="title_search">Search</string>
-    <string name="title_home">Home</string>
-    <string name="title_main">Main</string>
+    <string name="app_name">IMDb Api</string>
 
-    <!-- Categories requests in IMDb api and their names -->
+    <!-- Titles -->
     <string name="title_top250movies">Top 250 Movies</string>
     <string name="title_coming_soon">Coming Soon</string>
     <string name="title_similar_movies">More Like This</string>
+    <string name="title_most_popular_movies">Most Popular</string>
+    <string name="title_in_theaters">In Theaters</string>
+    <string name="title_box_office">Box Office</string>
+    <string name="title_box_office_all_time">Box Office All Time</string>
+
+    <!-- Other titles -->
+    <string name="title_wiki">Open Wiki</string>
     <string name="title_cast">Cast</string>
+    <string name="title_known_for">Known For</string>
     <string name="title_btn_see_all">See All</string>
+    <string name="title_btn_see_all_cast">All Cast</string>
+    <string name="title_on_back">On back</string>
+    <string name="title_settings">Settings</string>
+    <string name="title_change_api_key">IMDb API Key</string>
+    <string name="title_summary_api_key">Please add key</string>
+    <string name="title_birth_date">Born:</string>
+    <string name="title_death_date">Died:</string>
 
     <string name="string_directors">Directors: </string>
     <string name="string_writers">Writers: </string>
 
+    <!-- Keys -->
+    <string name="key_api">imDb_api_key</string>
+    
+    <!-- URLs -->
+    <string name="url_imDb_api">https://imdb-api.com/</string>
+    
+    <!-- Toast, Dialog messages -->
+    <string name="question_for_api_key">Do you have IMDb API Key?</string>
+    <string name="question_open_trailer">Open trailer in browser?</string>
+    <string name="question_open_wiki">Open in wikipedia?</string>
+
+    <!-- Error message -->
+    <string name="error_connection_problem">Sorry, something wrong with API connection or internet, try again.</string>
+
     <!-- Examples strings -->
-    <string name="example_title">Medium Title</string>
-    <string name="example_small_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
+    <string name="example_small_text">Medium Title</string>
+    <string name="example_medium_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
     <string name="example_big_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent turpis arcu, pretium vel libero lobortis, posuere convallis purus. Maecenas nisl mi, cursus facilisis nibh sed, mattis cursus libero. Proin maximus nec tellus id pellentesque. Curabitur eu risus ac justo porttitor pulvinar ac a nisl. Nam commodo maximus dictum. Quisque quis ligula erat. Nullam eget erat quis metus posuere pretium. Curabitur pulvinar ultrices suscipit. Proin eleifend arcu bibendum felis imperdiet hendrerit. Nullam laoreet erat diam, id elementum enim pharetra sed. In ut luctus augue. Quisque dapibus bibendum augue, at convallis risus facilisis nec. Suspendisse potenti. Donec in massa justo. </string>
 </resources>

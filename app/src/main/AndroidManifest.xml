@@ -3,6 +3,7 @@
     package="com.example.imdbapplication">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:name=".IMDBApplication"
@@ -12,12 +13,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/MainTheme">
-        <activity android:name=".ui.activities.AllActorsCastActivity"></activity>
-        <activity android:name=".ui.activities.MoviePageActivity" />
-        <activity android:name=".ui.activities.AllMoviesActivity" />
-        <activity android:name=".ui.activities.SearchActivity" />
         <activity
-            android:name=".ui.activities.MainActivity"
+            android:name=".ui.actor_page.ActorPageActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity android:name=".preference.PreferenceActivity" />
+        <activity
+            android:name=".ui.movie_page.MoviePageActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity android:name=".ui.search_page.SearchActivity" />
+        <activity
+            android:name=".ui.main_page.MainActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

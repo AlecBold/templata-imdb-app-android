@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <EditTextPreference
+        android:icon="@drawable/ic_key_black_24"
+        app:key="@string/key_api"
+        app:title="@string/title_change_api_key"
+        app:summary="@string/title_summary_api_key"
+        app:singleLineTitle="true"/>
+
+</PreferenceScreen>

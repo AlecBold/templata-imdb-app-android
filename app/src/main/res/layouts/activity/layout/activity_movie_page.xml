@@ -1,27 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <import type="android.view.View"/>
-        <import type="android.text.TextUtils"/>
+
+        <import type="android.view.View" />
+
+        <import type="android.text.TextUtils" />
+
         <variable
             name="fullMovie"
             type="com.example.imdbapplication.pojo.movie.FullMovie" />
+
         <variable
             name="trailerClickListener"
-            type="com.example.imdbapplication.data_binding.TrailerClickListener" />
+            type="com.example.imdbapplication.listeners.TrailerClickListener" />
+        <variable
+            name="wikiClickListener"
+            type="com.example.imdbapplication.listeners.WikiClickListener" />
+
+        <variable
+            name="isLoading"
+            type="boolean" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.activities.MoviePageActivity">
+        tools:context=".ui.movie_page.MoviePageActivity">
 
-        <ScrollView
+        <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_scrollFlags="enterAlways|scroll">
+
+            </com.google.android.material.appbar.MaterialToolbar>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -29,10 +57,10 @@
                 android:orientation="vertical">
 
                 <RelativeLayout
-                    android:visibility="@{TextUtils.isEmpty(fullMovie.trailer.videoUrl) ? View.GONE : View.VISIBLE}"
                     android:layout_width="match_parent"
                     android:layout_height="220dp"
-                    android:onClick="@{() -> trailerClickListener.onClicked(fullMovie.trailer.videoUrl)}">
+                    android:onClick="@{() -> trailerClickListener.onTrailerClick(fullMovie.trailer.videoUrl)}"
+                    android:visibility="@{TextUtils.isEmpty(fullMovie.trailer.videoUrl) ? View.GONE : View.VISIBLE}">
 
                     <ImageView
                         android:id="@+id/activityMoviePage_trailer"
@@ -45,63 +73,76 @@
                         app:profileImage="@{fullMovie.trailer.thumbnailUrl}" />
 
                     <ImageView
-                        android:src="@drawable/ic_play_circle_outline_white_40"
-                        android:layout_centerVertical="true"
-                        android:layout_centerHorizontal="true"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_play_circle_outline_white_40" />
 
                 </RelativeLayout>
 
                 <TextView
-                    android:text="@{fullMovie.title}"
                     android:id="@+id/activityMoviePage_txtTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/medium_padding"
                     android:layout_marginTop="@dimen/medium_padding"
+                    android:text="@{fullMovie.title}"
                     android:textSize="@dimen/large_font_size" />
 
                 <LinearLayout
-                    android:layout_marginHorizontal="@dimen/medium_padding"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/medium_padding"
                     android:divider="@drawable/empty_width_divider"
                     android:orientation="horizontal"
                     android:showDividers="middle">
 
                     <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="@{fullMovie.year}"
-                        android:visibility='@{TextUtils.isEmpty(fullMovie.year) ? View.GONE : View.VISIBLE}'
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:visibility='@{TextUtils.isEmpty(fullMovie.year) ? View.GONE : View.VISIBLE}' />
 
                     <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="@{fullMovie.contentRating}"
-                        android:visibility='@{TextUtils.isEmpty(fullMovie.contentRating) ? View.GONE : View.VISIBLE}'
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:visibility='@{TextUtils.isEmpty(fullMovie.contentRating) ? View.GONE : View.VISIBLE}' />
 
                     <TextView
-                        android:text="@{fullMovie.runtime}"
-                        android:visibility='@{TextUtils.isEmpty(fullMovie.runtime) ? View.GONE : View.VISIBLE}'
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:text="@{fullMovie.runtime}"
+                        android:visibility='@{TextUtils.isEmpty(fullMovie.runtime) ? View.GONE : View.VISIBLE}' />
                 </LinearLayout>
 
                 <LinearLayout
-                    app:profileColor="@{fullMovie.imgUrl}"
-                    android:orientation="horizontal"
+                    android:id="@+id/activityMoviePage_linearLayoutDesc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/medium_padding"
-                    android:layout_marginVertical="@dimen/medium_padding">
+                    android:layout_marginVertical="@dimen/medium_padding"
+                    android:orientation="horizontal">
 
-                    <ImageView
-                        app:profileImage="@{fullMovie.imgUrl}"
-                        android:layout_width="@dimen/movie_page_width"
-                        android:layout_height="@dimen/movie_page_height"
-                        android:layout_centerVertical="true" />
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/activityMoviePage_posterImgContainer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="4dp"
+                        android:paddingBottom="6dp"
+                        app:cardElevation="@dimen/small_card_elevation">
+
+                        <ImageView
+                            android:id="@+id/activityMoviePage_posterImg"
+                            android:adjustViewBounds="true"
+                            android:scaleType="centerCrop"
+                            android:layout_width="@dimen/movie_page_width"
+                            android:layout_height="@dimen/movie_page_height"
+                            android:layout_centerVertical="true"
+                            app:profileImage="@{fullMovie.imgUrl}"/>
+
+                    </androidx.cardview.widget.CardView>
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
@@ -109,17 +150,27 @@
                         android:layout_marginLeft="@dimen/medium_padding">
 
                         <TextView
-                            android:text="@{fullMovie.plot}"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ellipsize="end"
                             android:lines="9"
                             android:maxLines="9"
+                            android:text="@{fullMovie.plot}"
                             android:textSize="@dimen/small_font_size" />
 
                     </RelativeLayout>
 
                 </LinearLayout>
+
+                <Button
+                    android:layout_marginBottom="@dimen/medium_padding"
+                    android:layout_marginHorizontal="@dimen/medium_padding"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btnWiki"
+                    android:visibility="@{TextUtils.isEmpty(fullMovie.wikipedia.wikiUrl) ? View.GONE : View.VISIBLE}"
+                    android:onClick="@{() -> wikiClickListener.onWikiClick(fullMovie.wikipedia.wikiUrl)}"
+                    android:text="@string/title_wiki"/>
 
                 <FrameLayout
                     android:id="@+id/activityMoviePage_castContainer"
@@ -146,6 +197,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </LinearLayout>
-        </ScrollView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_gravity="center"
+            style="@style/Widget.AppCompat.ProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"/>
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
 </layout>
