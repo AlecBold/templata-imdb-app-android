@@ -9,7 +9,7 @@
 
         <variable
             name="cardClickListener"
-            type="com.example.imdbapplication.listeners.CardClickListener" />
+            type="com.example.imdbapplication.utils.listeners.CardClickListener" />
 
         <variable
             name="actor"

@@ -1,4 +1,4 @@
-package com.example.imdbapplication.preference;
+package com.example.imdbapplication.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;

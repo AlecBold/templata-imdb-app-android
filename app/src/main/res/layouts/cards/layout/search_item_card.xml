@@ -8,7 +8,7 @@
             type="com.example.imdbapplication.pojo.movie.SearchedMovie" />
         <variable
             name="onCardClickListener"
-            type="com.example.imdbapplication.listeners.CardClickListener" />
+            type="com.example.imdbapplication.utils.listeners.CardClickListener" />
     </data>
 
     <androidx.cardview.widget.CardView

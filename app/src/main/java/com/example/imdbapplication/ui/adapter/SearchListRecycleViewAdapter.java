@@ -10,7 +10,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.imdbapplication.R;
-import com.example.imdbapplication.listeners.CardClickListener;
+import com.example.imdbapplication.utils.listeners.CardClickListener;
 import com.example.imdbapplication.databinding.SearchItemCardBinding;
 import com.example.imdbapplication.pojo.movie.SearchedMovie;
 import com.example.imdbapplication.ui.movie_page.MoviePageActivity;

@@ -1,4 +1,4 @@
-package com.example.imdbapplication.listeners;
+package com.example.imdbapplication.utils.listeners;
 
 public interface TrailerClickListener {
     void onTrailerClick(String urlTrailer);

@@ -15,10 +15,10 @@
 
         <variable
             name="trailerClickListener"
-            type="com.example.imdbapplication.listeners.TrailerClickListener" />
+            type="com.example.imdbapplication.utils.listeners.TrailerClickListener" />
         <variable
             name="wikiClickListener"
-            type="com.example.imdbapplication.listeners.WikiClickListener" />
+            type="com.example.imdbapplication.utils.listeners.WikiClickListener" />
 
         <variable
             name="isLoading"

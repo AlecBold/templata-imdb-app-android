@@ -1,7 +1,6 @@
-package com.example.imdbapplication.preference;
+package com.example.imdbapplication.ui.preference;
 
 import android.content.SharedPreferences;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.MenuItem;
 

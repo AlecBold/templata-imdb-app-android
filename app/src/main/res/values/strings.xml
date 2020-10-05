@@ -11,6 +11,7 @@
     <string name="title_box_office_all_time">Box Office All Time</string>
 
     <!-- Other titles -->
+    <string name="title_search">Search</string>
     <string name="title_wiki">Open Wiki</string>
     <string name="title_cast">Cast</string>
     <string name="title_known_for">Known For</string>

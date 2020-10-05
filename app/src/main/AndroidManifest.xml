@@ -16,7 +16,7 @@
         <activity
             android:name=".ui.actor_page.ActorPageActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity android:name=".preference.PreferenceActivity" />
+        <activity android:name=".ui.preference.PreferenceActivity" />
         <activity
             android:name=".ui.movie_page.MoviePageActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />

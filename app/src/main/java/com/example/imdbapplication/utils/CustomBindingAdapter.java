@@ -1,4 +1,4 @@
-package com.example.imdbapplication.data_binding;
+package com.example.imdbapplication.utils;
 
 import android.annotation.SuppressLint;
 import android.graphics.Bitmap;

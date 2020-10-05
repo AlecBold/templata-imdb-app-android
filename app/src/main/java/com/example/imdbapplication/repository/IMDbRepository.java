@@ -1,8 +1,6 @@
 package com.example.imdbapplication.repository;
 
 
-import android.content.Context;
-import android.provider.ContactsContract;
 import android.util.Log;
 
 import androidx.lifecycle.MutableLiveData;
@@ -16,7 +14,6 @@ import com.example.imdbapplication.pojo.ItemsList;
 import com.example.imdbapplication.pojo.movie.FullMovie;
 import com.example.imdbapplication.pojo.movie.Movie;
 import com.example.imdbapplication.pojo.movie.SearchedMovie;
-import com.example.imdbapplication.preference.ApiKeyValidator;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;

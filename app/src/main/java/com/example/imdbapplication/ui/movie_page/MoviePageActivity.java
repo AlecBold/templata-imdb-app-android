@@ -17,8 +17,8 @@ import android.widget.Toast;
 
 import com.example.imdbapplication.IMDBApplication;
 import com.example.imdbapplication.R;
-import com.example.imdbapplication.listeners.TrailerClickListener;
-import com.example.imdbapplication.listeners.WikiClickListener;
+import com.example.imdbapplication.utils.listeners.TrailerClickListener;
+import com.example.imdbapplication.utils.listeners.WikiClickListener;
 import com.example.imdbapplication.databinding.ActivityMoviePageBinding;
 import com.example.imdbapplication.di.components.sub.MoviePageSubComponent;
 import com.example.imdbapplication.pojo.movie.FullMovie;
